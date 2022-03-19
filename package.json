@@ -1,0 +1,22 @@
+{
+  "name": "wwv-contracts",
+  "version": "1.0.0",
+  "description": "Solidity contracts for WWV NFT sale",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Montana Wong <montana@sengage.io> (http://montanawong.com)",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.4",
+    "ethers": "^5.5.4",
+    "hardhat": "^2.8.3"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.4.2",
+    "dotenv": "^16.0.0",
+    "keccak256": "^1.0.6",
+    "merkletreejs": "^0.2.27"
+  }
+}
