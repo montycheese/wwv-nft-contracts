@@ -4,25 +4,21 @@
 
 pragma solidity ^0.8.7;
 
-import './ERC721Enumerable.sol';
 import '@openzeppelin/contracts/access/Ownable.sol';
-import '@openzeppelin/contracts/utils/cryptography/MerkleProof.sol';
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "erc721a/contracts/ERC721A.sol";
 
 
-// TODO: ERC721A? to save our initial mint gas
-contract WomenWithVases is ERC721Enumerable, Ownable {
+contract WomenWithVases is ERC721A, Ownable {
 
     uint256 public MAX_SUPPLY = 100;
     string public baseURI;
 
     address private ADMIN_ADDRESS = 0x18866C05Ac6BbdC0e0cB8Fc5E2e9be400aF516c3;
 
-    constructor(string memory _baseTokenURI) ERC721("WomenWithVases", "WWV") {
+    constructor(string memory _baseTokenURI) ERC721A("WomenWithVases", "WWV") {
         setBaseURI(_baseTokenURI);
-        for (uint256 i; i < MAX_SUPPLY; i++) {
-            _safeMint(ADMIN_ADDRESS, i);
-        }
+        _safeMint(ADMIN_ADDRESS, MAX_SUPPLY);
     }
 
     function setBaseURI(string memory _baseTokenURI) public onlyOwner {

@@ -10,6 +10,7 @@
   "license": "UNLICENSED",
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.4",
+    "erc721a": "^3.1.0",
     "ethers": "^5.5.4",
     "hardhat": "^2.8.3"
   },
