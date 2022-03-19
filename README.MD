@@ -15,12 +15,4 @@ npx hardhat run scripts/deploy.js
 
 Note: Make sure deployed contract address is added to .env file for remainder of commands
 
-Mint for team
-```shell script
-npx hardhat mint-for-team
-```
-
-Set public sale status
-```shell script
-npx hardhat set-public-sale-status --status <true/false>
-```
+dev base uri QmZ2jTzUnCDBXwVn4gQXxdexuqLprZMwKpnedK9Q4heWnS

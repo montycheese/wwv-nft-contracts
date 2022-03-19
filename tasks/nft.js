@@ -1,26 +1,6 @@
 const { getContract } = require('../scripts/helpers');
 const { task  } = require("hardhat/config");
-
-
-task(
-    "set-base-uri",
-    "Sets the base uri string")
-    .addParam("uri", "The URI to set")
-    .setAction(async (taskArgs, hre) => {
-        const { uri: uriArg } = taskArgs;
-
-        const instance = await getContract();
-
-        console.debug(`Setting uri to: ${uriArg}`);
-
-        const txReceipt = await instance.setBaseURI(uriArg, {
-            gasLimit: 50000
-        });
-        console.debug('Tx broadcasted. Tx Hash: ', txReceipt.hash);
-        const resp = await txReceipt.wait();
-        console.debug('Set base uri status response: ', resp);
-        console.debug(`Base URI set to: ${uriArg}`);
-    });
+const fs = require('fs');
 
 task(
     "withdraw",
@@ -38,6 +18,45 @@ task(
         console.debug('Withdraw response: ', resp);
     });
 
+task(
+    "generate-dummy-metadata",
+    "Generate dummy metadata for testnet")
+    .setAction(async () => {
+        const totalSupply = 100;
+        for (let i = 0; i < totalSupply; i++) {
+            const metadata = {
+                description: "Test description",
+                image: "https://gateway.pinata.cloud/ipfs/QmWHUnAg8omMvfDj5RLuPFRS7ypBrukAsuQxHNNcBNfTbP",
+                name: `Women with Vases #${i}`,
+                attributes: {
+                    char: "abcdefghijklmnopqrstuvwxyz".charAt(Math.floor(Math.random() * "abcdefghijklmnopqrstuvwxyz".length))
+                }
+            };
+
+            fs.writeFileSync(`./metadata/${i}`, JSON.stringify(metadata));
+            console.log('done');
+        }
+    });
+
+task(
+    "set-base-uri",
+    "Sets the base uri")
+    .addParam("uri", "The uri to set")
+    .setAction(async (taskArgs, hre) => {
+        const { uri } = taskArgs;
+
+        const instance = await getContract();
+
+        console.debug(`Setting uri to: ${uri}`);
+
+        const txReceipt = await instance.setBaseURI(uri, {
+            gasLimit: 50000
+        });
+        console.debug('Tx broadcasted. Tx Hash: ', txReceipt.hash);
+        const resp = await txReceipt.wait();
+        console.debug('Set baseuri response: ', resp);
+        console.debug(`uri set to: ${uri}`);
+    });
 
 
 module.exports = {};

@@ -13,20 +13,24 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 // TODO: ERC721A? to save our initial mint gas
 contract WomenWithVases is ERC721Enumerable, Ownable {
 
-    uint public MAX_SUPPLY = 100;
+    uint256 public MAX_SUPPLY = 100;
     string public baseURI;
 
-    string private ADMIN_ADDRESS = "0x18866C05Ac6BbdC0e0cB8Fc5E2e9be400aF516c3";
+    address private ADMIN_ADDRESS = 0x18866C05Ac6BbdC0e0cB8Fc5E2e9be400aF516c3;
 
-    constructor(string _baseURI) ERC721("WomenWithVases", "WWV") {
-        baseURI = _baseURI;
+    constructor(string memory _baseTokenURI) ERC721("WomenWithVases", "WWV") {
+        setBaseURI(_baseTokenURI);
         for (uint256 i; i < MAX_SUPPLY; i++) {
-            _safeMint(ADMIN_ADDRESS, supply + i);
+            _safeMint(ADMIN_ADDRESS, i);
         }
     }
 
-    function setBaseURI(string calldata _baseURI) external onlyOwner {
-        baseURI = _baseURI;
+    function setBaseURI(string memory _baseTokenURI) public onlyOwner {
+        baseURI = _baseTokenURI;
+    }
+
+    function _baseURI() internal view virtual override returns (string memory) {
+        return baseURI;
     }
 
     // Send balance of contract to owner
