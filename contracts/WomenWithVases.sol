@@ -1,16 +1,14 @@
 // SPDX-License-Identifier: MIT
 
-// Contract by Montana Wong
+// Contract by @Montana_Wong
 
 pragma solidity ^0.8.7;
 
 import './ERC721Enumerable.sol';
 import '@openzeppelin/contracts/access/Ownable.sol';
-import '@openzeppelin/contracts/utils/cryptography/MerkleProof.sol';
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 
-// TODO: ERC721A? to save our initial mint gas
 contract WomenWithVases is ERC721Enumerable, Ownable {
 
     uint256 public MAX_SUPPLY = 100;
