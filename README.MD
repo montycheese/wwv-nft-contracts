@@ -15,4 +15,6 @@ npx hardhat run scripts/deploy.js
 
 Note: Make sure deployed contract address is added to .env file for remainder of commands
 
-dev base uri QmZ2jTzUnCDBXwVn4gQXxdexuqLprZMwKpnedK9Q4heWnS
+dev base uri 
+
+`https://gateway.pinata.cloud/ipfs/QmQprrLAa5qFQ6Hjn6qMgZPh4zTjLYWxzeXxGDfpNpxHs5/`
