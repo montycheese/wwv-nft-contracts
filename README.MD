@@ -17,4 +17,4 @@ Note: Make sure deployed contract address is added to .env file for remainder of
 
 dev base uri 
 
-`https://gateway.pinata.cloud/ipfs/QmQprrLAa5qFQ6Hjn6qMgZPh4zTjLYWxzeXxGDfpNpxHs5/`
+`https://gateway.pinata.cloud/ipfs/QmXVMz9kUagD9eju9XnpSuBDXPoQPXoLA3MNaaUZcVRhG4/`

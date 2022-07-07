@@ -10,13 +10,13 @@
   "license": "UNLICENSED",
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.4",
+    "@nomiclabs/hardhat-etherscan": "^3.0.3",
     "ethers": "^5.5.4",
     "hardhat": "^2.8.3"
   },
   "dependencies": {
     "@openzeppelin/contracts": "^4.4.2",
     "dotenv": "^16.0.0",
-    "keccak256": "^1.0.6",
-    "merkletreejs": "^0.2.27"
+    "erc721a": "^4.1.0"
   }
 }

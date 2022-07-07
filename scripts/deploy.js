@@ -2,11 +2,14 @@ const { BASE_URI } = process.env;
 
 async function main() {
     // Grab the contract factory
-    const wwvContractFactory = await ethers.getContractFactory("WomenWithVases");
+    const factory = await ethers.getContractFactory("KuullectorEditions");
 
     // Start deployment, returning a promise that resolves to a contract object
-    const wwvInstance = await wwvContractFactory.deploy(BASE_URI); // Instance of the contract
-    console.log("Contract deployed to address:", wwvInstance.address);
+    const instance = await factory.deploy({
+        gasPrice: 20000000000,
+        gasLimit: 6000000
+    }); // Instance of the contract
+    console.log("Contract deployed to address:", instance.address);
 }
 
 main()
