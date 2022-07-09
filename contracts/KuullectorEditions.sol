@@ -24,7 +24,7 @@ contract KuullectorEditions is ERC1155, Ownable, ERC1155Burnable, ERC1155Supply 
     string public symbol = "KE";
     address private authorizedMintingProxy;
 
-    constructor() ERC1155("ipfs://QmSUkfiFhfti33UVggaTb9FJvxCZiKXm9dcGG9ffEtqZvp/{id}.json") {}
+    constructor() ERC1155("ipfs://QmVyJxxw24YXKWUnYgXCNyrHVCfvu9S1ZEKpf7rDw3vH4x/{id}.json") {}
 
     modifier onlyOwnerOrAuthorized() {
         require(owner() == _msgSender() || authorizedMintingProxy == _msgSender(), "KuullectorEditions: caller is not the owner or authorized");
