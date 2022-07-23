@@ -6,8 +6,8 @@ async function main() {
 
     // Start deployment, returning a promise that resolves to a contract object
     const instance = await factory.deploy({
-        gasPrice: 20000000000,
-        gasLimit: 6000000
+        gasPrice: 13000000000,
+        gasLimit: 4000000
     }); // Instance of the contract
     console.log("Contract deployed to address:", instance.address);
 }

@@ -11,10 +11,10 @@ require("@nomiclabs/hardhat-etherscan");
 const { API_URL, PRIVATE_KEY } = process.env;
 module.exports = {
   solidity: "0.8.7",
-  defaultNetwork: "rinkeby",
+  defaultNetwork: "mainnet",
   networks: {
     hardhat: {},
-    rinkeby: {
+    mainnet: {
       url: API_URL,
       accounts: [`0x${PRIVATE_KEY}`]
     }
