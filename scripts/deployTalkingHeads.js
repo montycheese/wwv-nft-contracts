@@ -5,7 +5,7 @@ async function main() {
     const wwvContractFactory = await ethers.getContractFactory("TalkingHeads");
 
     // Start deployment, returning a promise that resolves to a contract object
-    const wwvInstance = await wwvContractFactory.deploy(BASE_URI, {
+    const wwvInstance = await wwvContractFactory.deploy("", {
         gasPrice: 8000000000,
         gasLimit: 6000000
     }); // Instance of the contract
